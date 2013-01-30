@@ -25,5 +25,7 @@ public class SudokuResolverTest extends TestCase {
     		"345286179";
     	SudokuBoard board = SudokuResolver.resolve( init );
     	assertEquals(board.toString(), init);
+    	assertTrue(board.isValid());
     }
+
 }
