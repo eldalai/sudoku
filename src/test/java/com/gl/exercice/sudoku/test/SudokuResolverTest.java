@@ -27,5 +27,19 @@ public class SudokuResolverTest extends TestCase {
     	assertEquals(board.toString(), init);
     	assertTrue(board.isValid());
     }
-
+    public void testDummyWithXSudokuResolverBoard()
+    {
+    	String init = 
+    		"x34678912" +
+    		"672195348" +
+    		"198342567" +
+    		"859761423" +
+    		"426853791" +
+    		"713924856" +
+    		"961537284" +
+    		"287419635" +
+    		"345286179";
+    	SudokuBoard board = SudokuResolver.resolve( init );
+    	assertTrue(board.isValid());
+    }
 }
