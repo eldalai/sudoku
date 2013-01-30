@@ -53,10 +53,13 @@ public class SudokuBoard {
 		for( int col = 0; col <= (MAX_LENGHT - 1); col++ ){
 			cleanControl(ctl);
 			for( int fil = 0; fil <= (MAX_LENGHT - 1); fil++ ){
-				ctl[ board[fil][col] ]++;
-				if(ctl[ board[fil][col] ]!=1) {
-					System.out.println("Ctrl x col: Invalid in:"+fil+" col:"+col+" num:"+board[fil][col]);
-					return false;
+				if( board[fil][col] != 0 )
+				{	
+					ctl[ board[fil][col] ]++;
+					if(ctl[ board[fil][col] ]>1) {
+						System.out.println("Ctrl x col: Invalid in:"+fil+" col:"+col+" num:"+board[fil][col]);
+						return false;
+					}
 				}
 			}
 		}
@@ -72,10 +75,13 @@ public class SudokuBoard {
 		for( int fil = 0; fil <= (MAX_LENGHT - 1); fil++ ){
 			cleanControl(ctl);
 			for( int col = 0; col <= (MAX_LENGHT - 1); col++ ){
-				ctl[ board[fil][col] ]++;
-				if(ctl[ board[fil][col] ]!=1) {
-					System.out.println("Ctrl x fil: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil][col]);
-					return false;
+				if( board[fil][col] != 0 )
+				{	
+					ctl[ board[fil][col] ]++;
+					if(ctl[ board[fil][col] ]>1) {
+						System.out.println("Ctrl x fil: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil][col]);
+						return false;
+					}
 				}
 			}
 		}
@@ -94,10 +100,14 @@ public class SudokuBoard {
 				cleanControl(ctl);
 				for( int icol = 0; icol < 3; icol++ ) {
 					for( int ifil = 0; ifil < 3; ifil++ ) {
-						ctl[ board[fil*3+ifil][col*3+icol] ]++;
-						if(ctl[ board[fil*3+ifil][col*3+icol] ]!=1) {
-							System.out.println("Ctrl x sector: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil*3+ifil][col*3+icol] );
-							return false;
+						if( board[fil*3+ifil][col*3+icol] != 0 )
+						{	
+							ctl[ board[fil*3+ifil][col*3+icol] ]++;
+							if(ctl[ board[fil*3+ifil][col*3+icol] ]>1) {
+								System.out.println("Ctrl x sector: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil*3+ifil][col*3+icol] );
+								return false;
+							}
+							
 						}
 					}
 				}
@@ -109,6 +119,14 @@ public class SudokuBoard {
 
 	private void cleanControl(int[] ctl) {
 		for( int clean = 0; clean <= MAX_LENGHT; clean++ ) ctl[clean]=0;
+	}
+
+	public int getCell(int fil, int col) {
+		return board[fil][col];
+	}
+
+	public void setCell(int fil, int col, int candidate) {
+		board[fil][col] = candidate;
 	}
 	
 }
