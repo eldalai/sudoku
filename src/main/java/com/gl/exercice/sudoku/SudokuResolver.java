@@ -5,10 +5,13 @@ public class SudokuResolver {
 	/**
 	 * resolve a Sudoku
 	 * @return an valid & resolved sudoku board  
+	 * @throws Exception 
 	 */
-	public static SudokuBoard resolve(String init) {
+	public static SudokuBoard resolve(String init) throws Exception {
 		init = init.replaceAll("x", "0");
 		SudokuBoard board = new SudokuBoard(init);
+		if( !board.isValid() )
+			throw new Exception("The board is not valid, give me a break!");
 		
 		think(board, 0, 0);
 		

@@ -1,5 +1,7 @@
 package com.gl.exercice.sudoku.test;
 
+import java.util.Date;
+
 import com.gl.exercice.sudoku.SudokuBoard;
 import com.gl.exercice.sudoku.SudokuResolver;
 
@@ -23,9 +25,15 @@ public class SudokuResolverTest extends TestCase {
     		"961537284" +
     		"287419635" +
     		"345286179";
-    	SudokuBoard board = SudokuResolver.resolve( init );
-    	assertEquals(board.toString(), init);
-    	assertTrue(board.isValid());
+    	SudokuBoard board;
+		try {
+			board = SudokuResolver.resolve( init );
+			assertEquals(board.toString(), init);
+			assertTrue(board.isValid());
+		} catch (Exception e) {
+			fail( "i'm not expecting to get an exception" );
+
+		}
     }
     public void testDummyWithXSudokuResolverBoard()
     {
@@ -39,8 +47,13 @@ public class SudokuResolverTest extends TestCase {
     		"961537284" +
     		"287419635" +
     		"345286179";
-    	SudokuBoard board = SudokuResolver.resolve( init );
-    	assertTrue(board.isValid());
+    	try {
+    		SudokuBoard board = SudokuResolver.resolve( init );
+			assertTrue(board.isValid());
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail( "i'm not expecting to get an exception" );
+		}
     }
     public void testSimpleSudokuResolverBoard()
     {
@@ -64,9 +77,15 @@ public class SudokuResolverTest extends TestCase {
     		"961537284" +
     		"287419635" +
     		"345286179";
-    	SudokuBoard board = SudokuResolver.resolve( init );
-    	assertTrue(board.isValid());
-    	assertEquals(expected, board.toString());
+    	SudokuBoard board;
+		try {
+			board = SudokuResolver.resolve( init );
+			assertTrue(board.isValid());
+			assertEquals(expected, board.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail( "i'm not expecting to get an exception" );
+		}
     }
     public void testComplexSudokuResolverBoard()
     {
@@ -91,9 +110,14 @@ public class SudokuResolverTest extends TestCase {
     		"287419635" +
     		"345286179";
     	
-    	SudokuBoard board = SudokuResolver.resolve( init );
-    	assertEquals(expected, board.toString());
-    	assertTrue(board.isValid());
+    	try {
+    		SudokuBoard board = SudokuResolver.resolve( init );
+	    	assertEquals(expected, board.toString());
+	    	assertTrue(board.isValid());
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail( "i'm not expecting to get an exception" );
+		}
     }
 
     public void testOtherComplexSudokuResolverBoard()
@@ -119,10 +143,41 @@ public class SudokuResolverTest extends TestCase {
     		"382145967" +
     		"614789523";
     	
-    	SudokuBoard board = SudokuResolver.resolve( init );
-    	System.out.println( board.toString() );
-    	assertEquals(expected, board.toString());
-    	assertTrue(board.isValid());
+    	try {
+	    	Date now = new Date();
+	    	SudokuBoard board = SudokuResolver.resolve( init );
+	    	Date end = new Date();
+	    	long takes = end.getTime() - now.getTime();
+	    	System.out.println( "resolved takes: " + takes + " miliseconds " );
+	    	System.out.println( board.toString() );
+	    	assertEquals(expected, board.toString());
+	    	assertTrue(board.isValid());
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail( "i'm not expecting to get an exception" );
+		}
+    }
+
+
+    public void testWrongSudokuResolverBoard()
+    {
+    	String init = 
+    		"xxx844xxx" + // wrong! 
+    		"843x6x1xx" +
+    		"72xx13xx6" +
+    		"4xx9xx6xx" +
+    		"xxx6xx75x" +
+    		"xxxx78xxx" +
+    		"x5xxxx84x" +
+    		"xxx14xxxx" +
+    		"6xx7xx5x3";
+    	
+    	try {
+	    	SudokuBoard board = SudokuResolver.resolve( init );
+	    	fail( "i'm expecting to get an exception" );
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
 }

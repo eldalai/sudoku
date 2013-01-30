@@ -8,9 +8,14 @@ public class SudokuBoard {
 	/**
 	 * Create a Sudoku Board
 	 * @param board: simple 9 x 9 character string
+	 * @throws Exception if board parameter is not 81 character long
 	 */
-	public SudokuBoard( String initialBoard ) {
+	public SudokuBoard( String initialBoard ) throws Exception {
 		super();
+		
+		if( initialBoard.length() != 81 )
+			throw new Exception("The board is wrong, should be 81 characters long");
+		
 		board = new int[MAX_LENGHT][MAX_LENGHT];
 
 		int x1 = 0;
