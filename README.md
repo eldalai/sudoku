@@ -10,24 +10,24 @@ Thanks in advance for the effort you need to put into this!
 
 Section 1 - Input example
 ===================
-53xx7xxxx
-6xx195xxx
-x98xxxx6x
-8xxx6xxx3
-4xx8x3xx1
-7xxx2xxx6
-x6xxxx28x
-xxx419xx5
-xxxx8xx79
+53xx7xxxx<br>
+6xx195xxx<br>
+x98xxxx6x<br>
+8xxx6xxx3<br>
+4xx8x3xx1<br>
+7xxx2xxx6<br>
+x6xxxx28x<br>
+xxx419xx5<br>
+xxxx8xx79<br>
 Section 2 - Output Example
 ====================
 
-534678912
-672195348
-198342567
-859761423
-426853791
-713924856
-961537284
-287419635
-345286179 
+534678912<br>
+672195348<br>
+198342567<br>
+859761423<br>
+426853791<br>
+713924856<br>
+961537284<br>
+287419635<br>
+345286179<br>
