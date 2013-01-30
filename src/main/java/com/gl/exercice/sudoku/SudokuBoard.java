@@ -25,6 +25,18 @@ public class SudokuBoard {
 	}
 
 	/**
+	 * @return board as simple 9 x 9 character string
+	 */
+	public String toString() {
+		StringBuffer str = new StringBuffer();
+		for( int fil = 0; fil <= (MAX_LENGHT - 1); fil++ )
+			for( int col = 0; col <= (MAX_LENGHT - 1); col++ ) {
+				str.append( board[fil][col] );
+			}
+		return str.toString();
+	}
+
+	/**
 	 * valid Board
 	 * @return true is valid fils, cols & sectors  
 	 */
