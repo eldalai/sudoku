@@ -177,11 +177,26 @@ public class TestBoard extends TestCase {
 	    /**
 	     * Test a invalid sector Sudoku Board
 	     */
-	    public void testWrongSudokuBoard()
+	    public void testWrongLenghtSudokuBoard()
 	    {
 	    	try {
 	    		SudokuBoard board = new SudokuBoard(
 		    			"534678912" + // this is wrong!
+		    			"345286179");
+	    		fail( "i'm expecting to get an exception" );
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+	    }
+	    /**
+	     * Test a invalid sector Sudoku Board
+	     */
+	    public void testWrongCharactersSudokuBoard()
+	    {
+	    	try {
+	    		SudokuBoard board = new SudokuBoard(
+		    			"ABSBASBSB" + // this is wrong!
 		    			"345286179");
 	    		fail( "i'm expecting to get an exception" );
 			} catch (Exception e) {
