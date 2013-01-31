@@ -1,12 +1,27 @@
 sudoku
 ======
+This program can solve a Sudoku puzzle (See http://en.wikipedia.org/wiki/Sudoku for rule, if you do not know the game) <br>
+The Input of the puzzle is from standard Input (See Section 1 below)<br>
+The output of the puzzle will be to standard output (See Section 2 below)<br>
+<br>
+USAGE
+=====
+Windows: <br>
+runjar.bat <br>
+<br>
+Linux:<br>
+runjar.sh<br>
+<br>
+For developers, (if you want to change the code, the script gonna re-package and run the application)<br>
+<br>
+Windows:<br>
+runmvn.bat<br>
+<br>
+Linux:<br>
+runmvn.sh<br>
+<br>
+<br>
 
-A program that can solve a Sudoku puzzle (See http://en.wikipedia.org/wiki/Sudoku for rule, if you do not know the game)
-The Input of the puzzle will be from standard Input (See Section 1 below)
-The output of the puzzle will be to standard output (See Section 2 below)
-This is a text based programming exercise
-You are expected to use J2SE for the execise
-Thanks in advance for the effort you need to put into this!
 
 Section 1 - Input example
 ===================

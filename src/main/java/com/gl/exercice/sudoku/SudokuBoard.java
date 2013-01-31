@@ -40,6 +40,19 @@ public class SudokuBoard {
 			}
 		return str.toString();
 	}
+	/**
+	 * @return board as simple 9 x 9 character string
+	 */
+	public String toStringWithEOL() {
+		StringBuffer str = new StringBuffer();
+		for( int fil = 0; fil <= (MAX_LENGHT - 1); fil++ ) {
+			for( int col = 0; col <= (MAX_LENGHT - 1); col++ ) {
+				str.append( board[fil][col] );
+			}
+			str.append("\n");
+		}	
+		return str.toString();
+	}
 
 	/**
 	 * valid Board
@@ -62,7 +75,7 @@ public class SudokuBoard {
 				{	
 					ctl[ board[fil][col] ]++;
 					if(ctl[ board[fil][col] ]>1) {
-						System.out.println("Ctrl x col: Invalid in:"+fil+" col:"+col+" num:"+board[fil][col]);
+						//System.out.println("Ctrl x col: Invalid in:"+fil+" col:"+col+" num:"+board[fil][col]);
 						return false;
 					}
 				}
@@ -84,7 +97,7 @@ public class SudokuBoard {
 				{	
 					ctl[ board[fil][col] ]++;
 					if(ctl[ board[fil][col] ]>1) {
-						System.out.println("Ctrl x fil: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil][col]);
+						//System.out.println("Ctrl x fil: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil][col]);
 						return false;
 					}
 				}
@@ -109,7 +122,7 @@ public class SudokuBoard {
 						{	
 							ctl[ board[fil*3+ifil][col*3+icol] ]++;
 							if(ctl[ board[fil*3+ifil][col*3+icol] ]>1) {
-								System.out.println("Ctrl x sector: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil*3+ifil][col*3+icol] );
+								//System.out.println("Ctrl x sector: Invalid in fil:"+fil+" col:"+col+" num:"+board[fil*3+ifil][col*3+icol] );
 								return false;
 							}
 							

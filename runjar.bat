@@ -1,0 +1,1 @@
+java -classpath sudoku-0.0.1-SNAPSHOT.jar com.gl.exercice.sudoku.SudokuResolverInput
